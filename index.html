@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de &lt;/Galil&gt; : IT Security, Linux, Python et développement web.">
+    <meta property="og:title" content="&lt;/Galil&gt; | Portfolio">
+    <meta property="og:description" content="IT Security, Linux, Python et développement web.">
+    <meta property="og:type" content="website">
+    <title>&lt;/Galil&gt; |</title>
+    <link rel="icon" href="galil.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="card nav-header">
+        <div class="coin-gauche">
+            <a href="#" aria-label="Haut de page"><img src="galil.svg" alt="Logo &lt;/Galil&gt;" width="30" height="30"></a>
+        </div>
+        <nav>
+            <a href="#apropos">À propos</a>
+            <a href="#competences">Compétences</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button id="bouton-theme" type="button" aria-label="Changer de thème">☀️</button>
+    </header>
+
+    <section class="hero-card">
+        <img src="galil.svg" alt="Logo &lt;/Galil&gt;" class="photo-hero">
+        <p class="salutation" id="salutation"></p>
+        <h1 class="titre-moderne">&lt;/Galil&gt;</h1>
+        <h3><span id="sous-titre">| Objectif : IT Security</span><span class="curseur" aria-hidden="true"></span></h3>
+        <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+        <a class="btn btn-secondary" href="#contact">Me contacter</a>
+    </section>
+
+    <section id="apropos" class="card">
+        <h2>À propos</h2>
+        <p>
+            Je m'intéresse au web, à l'infrastructure, à l'IA et à la sécurité.
+        </p>
+        <p>
+            Je construis mes bases en Python, SQL, Linux, réseaux et développement web.
+            Ce portfolio grandira avec mes projets.
+        </p>
+    </section>
+
+    <section id="competences" class="card">
+        <h2>Compétences en cours d'apprentissage</h2>
+        <ul>
+            <li><strong>Langages :</strong> Python</li>
+            <li><strong>Données :</strong> SQL (PostgreSQL)</li>
+            <li><strong>Web :</strong> HTML5, CSS3, JavaScript</li>
+            <li><strong>Systèmes :</strong> Linux &amp; Réseaux</li>
+        </ul>
+    </section>
+
+    <section id="projets" class="card">
+        <h2>Projets</h2>
+        <h3 id="titre-projets">SOON</h3>
+    </section>
+
+    <section id="contact" class="card">
+        <h2>Contact</h2>
+
+        <div class="alignement-icones">
+            <a href="https://github.com/lahadekamal2-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="github.svg" alt="Logo GitHub, lien vers le profil GitHub" width="30">
+            </a>
+            <a href="https://www.linkedin.com/in/lahady-dine-kamal-issouf-626696315" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="link.png" alt="Logo LinkedIn, lien vers le profil LinkedIn" width="30">
+            </a>
+        </div>
+
+        <h3 class="titre-form">Vous pouvez m'écrire directement</h3>
+        <form action="https://formspree.io/f/xzedwbbw" method="POST" class="formulaire">
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" type="text" maxlength="80" autocomplete="name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+            <div class="champ-piege" aria-hidden="true">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <p id="statut-form" class="statut-form" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <footer class="card">
+        <p>&copy; <span id="annee">2026</span> &lt;/Galil&gt; · <small>V2</small></p>
+    </footer>
+
+</body>
+</html>
