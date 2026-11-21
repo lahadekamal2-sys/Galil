@@ -280,7 +280,22 @@ function appliquerTheme(clair) {
     if (majCouleurReseau) { majCouleurReseau(); }
 }
 
-appliquerTheme(lireTheme() === 'clair');
+const themeEnregistre = lireTheme();
+appliquerTheme(themeEnregistre === null
+    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+    : themeEnregistre === 'clair');
+
+if (window.matchMedia) {
+    const preferenceCouleur = window.matchMedia('(prefers-color-scheme: light)');
+    const suivrePreference = function (evenement) {
+        if (lireTheme() === null) { appliquerTheme(evenement.matches); }
+    };
+    if (typeof preferenceCouleur.addEventListener === 'function') {
+        preferenceCouleur.addEventListener('change', suivrePreference);
+    } else if (typeof preferenceCouleur.addListener === 'function') {
+        preferenceCouleur.addListener(suivrePreference);
+    }
+}
 
 boutonTheme.addEventListener('click', function () {
     const clair = !racine.classList.contains('theme-clair');
