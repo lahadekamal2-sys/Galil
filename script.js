@@ -364,10 +364,4 @@ if (projetsTitre && !reduireMouvement) {
     }, 600);
 }
 
-const titreOriginal = document.title;
-
-document.addEventListener('visibilitychange', function () {
-    document.title = document.hidden ? 'Thanks !' : titreOriginal;
-});
-
 parId('annee').textContent = new Date().getFullYear();
