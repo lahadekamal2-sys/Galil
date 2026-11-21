@@ -68,8 +68,6 @@ a {
   padding: 0 24px;
 }
 
-/* ---------- Éléments cliquables : coins adoucis, soulèvement, lueur ---------- */
-
 :is(.barre nav a, .btn, .bouton-theme, .alignement-icones a, .logo) {
   border-radius: 3px;
   transition:
@@ -101,8 +99,6 @@ a {
     0 6px 20px -6px color-mix(in srgb, var(--gold) 75%, transparent),
     0 0 26px color-mix(in srgb, var(--gold) 38%, transparent);
 }
-
-/* ---------- Barre de navigation ---------- */
 
 .barre {
   position: sticky;
@@ -216,8 +212,6 @@ a {
   display: block;
 }
 
-/* ---------- Hero ---------- */
-
 .hero {
   position: relative;
   padding: 96px 0 112px;
@@ -327,8 +321,6 @@ h1 {
   background: var(--gold-soft);
 }
 
-/* ---------- Terminal ---------- */
-
 .terminal {
   min-width: 0;
   margin: 0;
@@ -404,8 +396,6 @@ h1 {
   50%, 100% { opacity: 0; }
 }
 
-/* ---------- Sections ---------- */
-
 .section {
   padding: 88px 0;
   border-top: 1px solid var(--line);
@@ -444,8 +434,6 @@ h2 {
   line-height: 1.4;
 }
 
-/* ---------- Compétences ---------- */
-
 .liste-competences {
   list-style: none;
   margin: 32px 0 0;
@@ -482,8 +470,6 @@ h2 {
 .liste-competences li:hover strong {
   color: var(--gold);
 }
-
-/* ---------- Projets ---------- */
 
 .liste-projets {
   list-style: none;
@@ -533,8 +519,6 @@ h2 {
   font-size: 1.1rem;
   color: var(--muted);
 }
-
-/* ---------- Contact ---------- */
 
 .formulaire {
   display: grid;
@@ -632,8 +616,6 @@ h2 {
   height: 22px;
 }
 
-/* ---------- Pied de page ---------- */
-
 .pied {
   padding: 40px 0 56px;
   border-top: 1px solid var(--line);
@@ -645,8 +627,6 @@ h2 {
   margin: 0;
 }
 
-/* ---------- Apparition au scroll ---------- */
-
 body.js-actif .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -657,8 +637,6 @@ body.js-actif .reveal.visible {
   opacity: 1;
   transform: none;
 }
-
-/* ---------- Responsive ---------- */
 
 @media (max-width: 860px) {
   .hero {

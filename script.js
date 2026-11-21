@@ -2,18 +2,16 @@ function parId(id) {
     return document.getElementById(id);
 }
 
-const reduireMouvement = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reduireMouvement = typeof window.matchMedia === 'function'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const intersectionObserverDisponible = typeof window.IntersectionObserver === 'function';
 const racine = document.documentElement;
 const hero = document.querySelector('.hero');
-
-/* ---------- Salutation ---------- */
 
 const heureActuelle = new Date().getHours();
 parId('salutation').textContent = (heureActuelle >= 5 && heureActuelle < 18)
     ? '// Bonjour, visiteur !'
     : '// Bonsoir, visiteur !';
-
-/* ---------- Terminal animé ---------- */
 
 const PROMPT = 'galil@portfolio:~$ ';
 const scenario = [
@@ -73,8 +71,6 @@ async function lancerTerminal() {
 
 lancerTerminal();
 
-/* ---------- Fond du hero : réseau de points qui dérivent lentement ---------- */
-
 let majCouleurReseau = null;
 
 (function () {
@@ -90,7 +86,7 @@ let majCouleurReseau = null;
     let distanceMax = 130;
     let rgb = '201,169,106';
     let enCours = false;
-    let heroVisible = true;
+    let heroVisible = intersectionObserverDisponible;
     let idAnimation = 0;
     let minuterie = 0;
 
@@ -187,7 +183,7 @@ let majCouleurReseau = null;
         dessiner();
     };
 
-    if (typeof window.IntersectionObserver === 'function') {
+    if (intersectionObserverDisponible) {
         new IntersectionObserver(function (entrees) {
             heroVisible = entrees[0].isIntersecting;
             if (heroVisible) { demarrer(); } else { arreter(); }
@@ -218,10 +214,6 @@ let majCouleurReseau = null;
     demarrer();
 })();
 
-/* ---------- Apparition des sections et lien actif ---------- */
-
-document.body.classList.add('js-actif');
-
 const liensNav = document.querySelectorAll('.barre nav a');
 const liensNavParId = {};
 
@@ -232,45 +224,54 @@ liensNav.forEach(function (lien) {
     }
 });
 
-const observateurApparition = new IntersectionObserver(function (entrees) {
-    entrees.forEach(function (entree) {
-        if (entree.isIntersecting) {
-            entree.target.classList.add('visible');
-            observateurApparition.unobserve(entree.target);
-        }
+if (intersectionObserverDisponible) {
+    const observateurApparition = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (entree) {
+            if (entree.isIntersecting) {
+                entree.target.classList.add('visible');
+                observateurApparition.unobserve(entree.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+        observateurApparition.observe(el);
     });
-}, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(function (el) {
-    observateurApparition.observe(el);
-});
+    const observateurNav = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (entree) {
+            const lien = liensNavParId[entree.target.id];
+            if (lien) {
+                lien.classList.toggle('actif', entree.isIntersecting);
+            }
+        });
+    }, { rootMargin: '-45% 0px -45% 0px' });
 
-const observateurNav = new IntersectionObserver(function (entrees) {
-    entrees.forEach(function (entree) {
-        const lien = liensNavParId[entree.target.id];
-        if (lien) {
-            lien.classList.toggle('actif', entree.isIntersecting);
-        }
+    document.querySelectorAll('main section').forEach(function (section) {
+        observateurNav.observe(section);
     });
-}, { rootMargin: '-45% 0px -45% 0px' });
 
-document.querySelectorAll('main section').forEach(function (section) {
-    observateurNav.observe(section);
-});
-
-/* ---------- Thème : sombre par défaut, clair au choix ---------- */
+    document.body.classList.add('js-actif');
+}
 
 const boutonTheme = parId('bouton-theme');
 const CLE_THEME = 'portfolio-theme';
 
 function lireTheme() {
-    try { return localStorage.getItem(CLE_THEME); } catch (e) { return null; }
+    try {
+        return localStorage.getItem(CLE_THEME);
+    } catch (e) {
+        console.warn('Le thème enregistré ne peut pas être lu.', e);
+        return null;
+    }
 }
 
 function sauverTheme(valeur) {
     try {
         localStorage.setItem(CLE_THEME, valeur);
-    } catch (e) {}
+    } catch (e) {
+        console.warn('Le thème ne peut pas être enregistré.', e);
+    }
 }
 
 function appliquerTheme(clair) {
@@ -279,7 +280,6 @@ function appliquerTheme(clair) {
     if (majCouleurReseau) { majCouleurReseau(); }
 }
 
-// Sombre par défaut : seul un choix « clair » enregistré change cela.
 appliquerTheme(lireTheme() === 'clair');
 
 boutonTheme.addEventListener('click', function () {
@@ -287,8 +287,6 @@ boutonTheme.addEventListener('click', function () {
     appliquerTheme(clair);
     sauverTheme(clair ? 'clair' : 'sombre');
 });
-
-/* ---------- Formulaire de contact ---------- */
 
 const formulaire = document.querySelector('.formulaire');
 const statutForm = parId('statut-form');
@@ -340,8 +338,6 @@ if (formulaire && statutForm) {
             });
     });
 }
-
-/* ---------- Petits détails ---------- */
 
 const projetsTitre = parId('titre-projets');
 
