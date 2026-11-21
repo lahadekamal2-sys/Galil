@@ -3,99 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de &lt;/Galil&gt; : IT Security, Linux, Python et développement web.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Portfolio de &lt;/Galil&gt; : Infrastructure Linux &amp; Cloud Security. Projets et compétences.">
     <meta property="og:title" content="&lt;/Galil&gt; | Portfolio">
-    <meta property="og:description" content="IT Security, Linux, Python et développement web.">
+    <meta property="og:description" content="Infrastructure Linux &amp; Cloud Security. Projets et compétences.">
     <meta property="og:type" content="website">
     <title>&lt;/Galil&gt; |</title>
-    <link rel="icon" href="galil.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header class="card nav-header">
-        <div class="coin-gauche">
-            <a href="#" aria-label="Haut de page"><img src="galil.svg" alt="Logo &lt;/Galil&gt;" width="30" height="30"></a>
+    <header class="barre">
+        <div class="conteneur barre-interieur">
+            <a class="logo" href="#accueil" aria-label="Haut de page">
+                <img src="galil.svg" alt="Logo &lt;/Galil&gt;" width="30" height="30">
+            </a>
+            <nav aria-label="Navigation principale">
+                <a href="#apropos">À propos</a>
+                <a href="#competences">Compétences</a>
+                <a href="#projets">Projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button id="bouton-theme" class="bouton-theme" type="button" aria-label="Passer au thème clair">
+                <svg class="icone-soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <svg class="icone-lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
         </div>
-        <nav>
-            <a href="#apropos">À propos</a>
-            <a href="#competences">Compétences</a>
-            <a href="#projets">Projets</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <button id="bouton-theme" type="button" aria-label="Changer de thème">☀️</button>
     </header>
 
-    <section class="hero-card">
-        <img src="galil.svg" alt="Logo &lt;/Galil&gt;" class="photo-hero">
-        <p class="salutation" id="salutation"></p>
-        <h1 class="titre-moderne">&lt;/Galil&gt;</h1>
-        <h3><span id="sous-titre">| Objectif : IT Security</span><span class="curseur" aria-hidden="true"></span></h3>
-        <a class="btn btn-primary" href="#projets">Voir mes projets</a>
-        <a class="btn btn-secondary" href="#contact">Me contacter</a>
-    </section>
+    <main>
+        <section id="accueil" class="hero">
+            <canvas id="reseau" class="reseau" aria-hidden="true"></canvas>
+            <div class="conteneur hero-grille">
+                <div class="hero-texte">
+                    <p class="salutation" id="salutation"></p>
+                    <h1>&lt;/Galil&gt;</h1>
+                    <p class="sous-titre">Infrastructure Linux &amp; Cloud Security</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+                        <a class="btn btn-secondary" href="#contact">Me contacter</a>
+                    </div>
+                </div>
 
-    <section id="apropos" class="card">
-        <h2>À propos</h2>
-        <p>
-            Je m'intéresse au web, à l'infrastructure, à l'IA et à la sécurité.
-        </p>
-        <p>
-            Je construis mes bases.
-        </p>
-    </section>
-
-    <section id="competences" class="card">
-        <h2>Compétences en cours d'apprentissage</h2>
-        <ul>
-            <li><strong>Langages :</strong> Python</li>
-            <li><strong>Données :</strong> SQL (PostgreSQL)</li>
-            <li><strong>Web :</strong> HTML5, CSS3, JavaScript</li>
-            <li><strong>Systèmes :</strong> Linux &amp; Réseaux</li>
-        </ul>
-    </section>
-
-    <section id="projets" class="card">
-        <h2>Projets</h2>
-        <h3 id="titre-projets">SOON</h3>
-    </section>
-
-    <section id="contact" class="card">
-        <h2>Contact</h2>
-
-        <div class="alignement-icones">
-            <a href="https://github.com/lahadekamal2-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="github.svg" alt="Logo GitHub, lien vers le profil GitHub" width="30">
-            </a>
-            <a href="https://www.linkedin.com/in/lahady-dine-k-626696315" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="link.png" alt="Logo LinkedIn, LinkedIn link " width="30">
-            </a>
-        </div>
-
-        <h3 class="titre-form">Vous pouvez m'écrire directement</h3>
-        <form action="https://formspree.io/f/xzedwbbw" method="POST" class="formulaire">
-            <label for="nom">Nom</label>
-            <input id="nom" name="nom" type="text" maxlength="80" autocomplete="name" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
-
-            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
-            <div class="champ-piege" aria-hidden="true">
-                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                <figure class="terminal" aria-label="Aperçu en ligne de commande : étudiant en L3, Linux, Bash, PostgreSQL, Git, projets secure-mdp-api et gestion-stagiaires">
+                    <div class="terminal-barre" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                        <em>galil@portfolio</em>
+                    </div>
+                    <pre id="terminal" aria-hidden="true"></pre>
+                </figure>
             </div>
+        </section>
 
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-            <p id="statut-form" class="statut-form" role="status" aria-live="polite"></p>
-        </form>
-    </section>
+        <section id="apropos" class="section reveal">
+            <div class="conteneur section-grille">
+                <h2>À propos</h2>
+                <div class="section-corps">
+                    <p class="chapeau">
+                        Étudiant en L3, je me forme sérieusement en infrastructure Linux et en sécurité cloud.
+                    </p>
+                    <p>
+                        Le monde professionnel est exigeant. Je m'y prépare en consolidant mes bases
+                        et en pratiquant régulièrement sur des projets concrets.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <footer class="card">
-        <p>&copy; <span id="annee">2026</span> &lt;/Galil&gt; · <small>V2</small></p>
+        <section id="competences" class="section reveal">
+            <div class="conteneur section-grille">
+                <h2>Compétences en cours d'apprentissage</h2>
+                <div class="section-corps">
+                    <p>Je me forme actuellement à ces technologies.</p>
+                    <ul class="liste-competences">
+                        <li><strong>Bash scripting</strong><span>Automatisation de tâches répétitives</span></li>
+                        <li><strong>Linux CLI</strong><span>Administration système en ligne de commande</span></li>
+                        <li><strong>PostgreSQL</strong><span>Gestion et optimisation de bases de données</span></li>
+                        <li><strong>Git et GitHub</strong><span>Gestion de version et collaboration</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="section reveal">
+            <div class="conteneur section-grille">
+                <h2>Projets</h2>
+                <div class="section-corps">
+                    <p class="chapeau"><strong>Projet en cours de réalisation</strong></p>
+                    <ul class="liste-projets">
+                        <li class="prochain">
+                            <h3 id="titre-projets">SOON</h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section reveal">
+            <div class="conteneur section-grille">
+                <h2>Contact</h2>
+                <div class="section-corps">
+                    <p class="chapeau">Vous pouvez m'écrire directement.</p>
+
+                    <form action="https://formspree.io/f/xzedwbbw" method="POST" class="formulaire">
+                        <label for="nom">Nom</label>
+                        <input id="nom" name="nom" type="text" maxlength="80" autocomplete="name" required>
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+
+                        <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+                        <div class="champ-piege" aria-hidden="true">
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <p id="statut-form" class="statut-form" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <div class="alignement-icones">
+                        <a href="https://github.com/lahadekamal2-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lahady-dine-k-626696315" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1-.001 5.001A2.5 2.5 0 0 1 4.98 3.5zM3 9.5h4V21H3V9.5zM9.5 9.5h3.8v1.6h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4V9.5z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pied">
+        <div class="conteneur">
+            <p>&copy; <span id="annee">2026</span> &lt;/Galil&gt; · <small>V3</small></p>
+        </div>
     </footer>
 
 </body>

@@ -1,8 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Logo Galil">
-  <rect width="128" height="128" rx="28" fill="#0b0f19"/>
-  <g fill="none" stroke="#22c55e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="46,44 24,64 46,84"/>
-    <line x1="72" y1="40" x2="56" y2="88"/>
-    <polyline points="82,44 104,64 82,84"/>
-  </g>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="1024.000000pt" height="1024.000000pt" viewBox="0 0 1024.000000 1024.000000"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+<g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M1992 8247 l-962 -962 0 -2165 0 -2165 963 -963 962 -962 2165 0
+2165 0 963 963 962 962 0 1423 0 1422 -2045 0 -2045 0 0 -680 0 -680 1365 0
+1365 0 0 -457 0 -458 -567 -567 -568 -568 -1595 0 -1595 0 -567 567 -568 568
+0 1595 0 1595 568 568 567 567 2163 0 2162 0 0 680 0 680 -2448 0 -2447 0
+-963 -963z"/>
+</g>
 </svg>
